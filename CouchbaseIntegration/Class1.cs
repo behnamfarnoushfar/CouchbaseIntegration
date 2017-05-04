@@ -38,6 +38,9 @@ namespace CouchbaseIntegration
             couchbaseProperty.Name = "N1QL Query";
             couchbaseProperty.Value = string.Empty;
 
+            couchbaseProperty = ComponentMetaData.CustomPropertyCollection.New();
+            couchbaseProperty.Name = "V";
+
 
         }
     }
