@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CouchbaseIntegration</RootNamespace>
     <AssemblyName>CouchbaseIntegration</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,29 +30,139 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IconLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CouchbaseIntegrationSNK.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Couchbase.NetClient, Version=2.4.4.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
+      <HintPath>..\packages\CouchbaseNetClient.2.4.4\lib\net45\Couchbase.NetClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dts.Design, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.Dts.Design\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.Dts.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dts.DtsClient, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.Dts.DtsClient\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.Dts.DtsClient.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SQLServer.DTSPipelineWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.DTSPipelineWrap\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SQLServer.DTSPipelineWrap.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SQLServer.DTSRuntimeWrap, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\130\SDK\Assemblies\Microsoft.SQLServer.DTSRuntimeWrap.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.DTSUtilities, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.DTSUtilities\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.DTSUtilities.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SQLServer.PipelineHost, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.PipelineHost\v4.0_14.0.0.0__89845dcd8080cc91\Microsoft.SQLServer.PipelineHost.dll</HintPath>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.PipelineHost\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SQLServer.PipelineHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CouchbaseSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CouchbaseIntegrationSNK.snk" />
+    <None Include="packages.config" />
+    <None Include="Resources\IconLogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IconLogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -u $(TargetName)  
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -if $(TargetPath)  
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /u "$(TargetName)"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /if "$(TargetPath)"
+
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -u "Newtonsoft.Json"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -if "$(SolutionDir)packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /u "Newtonsoft.Json"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /if "$(SolutionDir)packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll"
+
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -u "Couchbase.NetClient"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -if "$(SolutionDir)packages\CouchbaseNetClient.2.4.4\lib\net45\Couchbase.NetClient.dll"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /u "Couchbase.NetClient"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /if "$(SolutionDir)packages\CouchbaseNetClient.2.4.4\lib\net45\Couchbase.NetClient.dll"
+
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -u "Common.Logging"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -if "$(SolutionDir)packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /u "Common.Logging"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /if "$(SolutionDir)packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll"
+
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -u "Common.Logging.Core"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\gacutil.exe" -if "$(SolutionDir)packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /u "Common.Logging.Core"
+"%25PROGRAMFILES(X86)%25\Microsoft SDKs\Windows\v8.1A\Bin\NETFX 4.5.1 Tools\gacutil.exe" /if "$(SolutionDir)packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll"
+
+copy "$(TargetPath)" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\110\DTS\PipelineComponents" /Y
+copy "$(TargetPath)" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\120\DTS\PipelineComponents" /Y
+copy "$(TargetPath)" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\130\DTS\PipelineComponents" /Y
+copy "$(TargetPath)" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\140\DTS\PipelineComponents" /Y
+
+copy "$(SolutionDir)packages\CouchbaseNetClient.2.4.4\lib\net45\Couchbase.NetClient.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\110\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\CouchbaseNetClient.2.4.4\lib\net45\Couchbase.NetClient.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\120\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\CouchbaseNetClient.2.4.4\lib\net45\Couchbase.NetClient.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\130\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\CouchbaseNetClient.2.4.4\lib\net45\Couchbase.NetClient.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\140\DTS\PipelineComponents" /Y
+
+
+copy "$(SolutionDir)packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\110\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\120\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\130\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\140\DTS\PipelineComponents" /Y
+
+copy "$(SolutionDir)packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\110\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\120\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\130\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\140\DTS\PipelineComponents" /Y
+
+copy "$(SolutionDir)packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\110\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\120\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\130\DTS\PipelineComponents" /Y
+copy "$(SolutionDir)packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll" "%25PROGRAMFILES(X86)%25\Microsoft SQL Server\140\DTS\PipelineComponents" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
